@@ -1,3 +1,13 @@
+const initialState = {
+  smurfs: []
+};
+
+const reducer = (state = initialState, action) => {
+  return state;
+};
+
+export default reducer;
+
 /*
   Be sure to import in all of the action types from `../actions`
 */
