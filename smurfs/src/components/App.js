@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Smurfs from "./Smurfs";
+import AddSmurf from "./AddSmurf";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
             <Link to="/smurfs">Get those Smurfs!</Link>
           </div>
           <Route exact path="/smurfs" component={Smurfs} />
+          <Route exact path="/addsmurf" component={AddSmurf} />
         </div>
       </Router>
     );

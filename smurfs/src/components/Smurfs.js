@@ -13,6 +13,12 @@ class Smurfs extends Component {
     return (
       <div>
         <h1>SMURFS</h1>
+        <div>
+          {this.props.smurfs.map((smurf, index) => (
+            <Smurf smurf={smurf} key={index} index={index} />
+          ))}
+        </div>
+        <Link to="/addsmurf">Add Smurf</Link>
       </div>
     );
   }
@@ -24,7 +30,9 @@ const mapStateToProps = ({ error, smurfs, fetchingSmurfs }) => ({
   fetchingSmurfs
 });
 
-export default connect(
-  mapStateToProps,
-  { getSmurfs }
-)(Smurfs);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getSmurfs }
+  )(Smurfs)
+);
