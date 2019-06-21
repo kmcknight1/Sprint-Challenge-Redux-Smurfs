@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Card, CardBody, Button } from "reactstrap";
 import { connect } from "react-redux";
 
 import { deleteSmurf } from "../actions";
@@ -12,10 +13,16 @@ class Smurf extends Component {
   render() {
     return (
       <div className="smurf">
-        <h3>Name: {this.props.smurf.name}</h3>
-        <h4>Age: {this.props.smurf.age}</h4>
-        <h4>Height: {this.props.smurf.height}</h4>
-        <button onClick={this.deleteSmurf}>Delete Smurf</button>
+        <Card>
+          <CardBody>
+            <h3>Name: {this.props.smurf.name}</h3>
+            <h4>Age: {this.props.smurf.age}</h4>
+            <h4>Height: {this.props.smurf.height}</h4>
+            <Button color="primary" size="sm" onClick={this.deleteSmurf}>
+              Delete Smurf
+            </Button>
+          </CardBody>
+        </Card>
       </div>
     );
   }

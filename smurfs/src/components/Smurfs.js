@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Jumbotron, Button } from "reactstrap";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import { getSmurfs } from "../actions";
@@ -11,14 +12,24 @@ class Smurfs extends Component {
 
   render() {
     return (
-      <div>
-        <h1>SMURFS</h1>
+      <div className="smurfs">
+        <Jumbotron>
+          <h1>Smurf Village</h1>
+          <p>
+            Here are the Smurfs that currently populate your Village. Feel free
+            to Add New Smurfs or Delete exiting Smurfs.{" "}
+          </p>
+        </Jumbotron>
         <div>
           {this.props.smurfs.map((smurf, index) => (
             <Smurf smurf={smurf} key={index} index={index} />
           ))}
         </div>
-        <Link to="/addsmurf">Add Smurf</Link>
+        <Link to="/addsmurf">
+          <Button color="primary" size="lg" block>
+            Add Smurf
+          </Button>
+        </Link>
       </div>
     );
   }
