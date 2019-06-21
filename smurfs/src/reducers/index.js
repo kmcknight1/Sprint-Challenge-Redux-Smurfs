@@ -1,9 +1,39 @@
+import {
+  GET_SMURFS_PENDING,
+  GET_SMURFS_SUCCESS,
+  GET_SMURFS_FAIL
+} from "../actions";
+
 const initialState = {
-  smurfs: []
+  smurfs: [],
+  fetchingSmurfs: false,
+  error: ""
 };
 
 const reducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case GET_SMURFS_PENDING:
+      return {
+        ...state,
+        error: "",
+        fetchingSmurfs: true
+      };
+    case GET_SMURFS_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        fetchingSmurfs: false,
+        smurfs: action.payload
+      };
+    case GET_SMURFS_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        fetchingSmurfs: false
+      };
+    default:
+      return state;
+  }
 };
 
 export default reducer;
