@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
-import './App.css';
-/*
- to wire this component up you're going to need a few things.
- I'll let you do this part on your own. 
- Just remember, `how do I `connect` my components to redux?`
- `How do I ensure that my component links the state to props?`
- */
+import React, { Component } from "react";
+
+import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Smurfs from "./Smurfs";
+import AddSmurf from "./AddSmurf";
+import Landing from "./Landing";
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your Redux version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
+      <Router>
+        <div className="App">
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/smurfs" component={Smurfs} />
+          <Route exact path="/addsmurf" component={AddSmurf} />
+        </div>
+      </Router>
     );
   }
 }
